@@ -1,0 +1,23 @@
+fn md_bold(text: string) -> string {
+    return "<strong>" + text + "</strong>"
+}
+fn md_italic(text: string) -> string {
+    return "<em>" + text + "</em>"
+}
+fn md_heading(level: int, text: string) -> string {
+    return "<h" + int_to_string(level) + ">" + text + "</h" + int_to_string(level) + ">"
+}
+fn md_link(text: string, url: string) -> string {
+    return "<a href=\"" + url + "\">" + text + "</a>"
+}
+
+fn main() -> int {
+    Test.init("markdown")
+    Test.assert_eq_str(md_bold("hello"), "<strong>hello</strong>", "bold")
+    Test.assert_eq_str(md_italic("hello"), "<em>hello</em>", "italic")
+    Test.assert_eq_str(md_heading(1, "Title"), "<h1>Title</h1>", "h1")
+    Test.assert_eq_str(md_heading(2, "Sub"), "<h2>Sub</h2>", "h2")
+    Test.assert(md_link("Wyn", "https://wynlang.com").contains("href"), "link")
+    Test.summary()
+    return 0
+}
