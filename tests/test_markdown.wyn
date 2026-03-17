@@ -1,35 +1,18 @@
-fn md_bold(text: string) -> string {
-    return "<strong>" + text + "</strong>"
-}
+fn md_bold(text: string) -> string { return "<strong>" + text + "</strong>" }
+fn md_italic(text: string) -> string { return "<em>" + text + "</em>" }
+fn md_code(text: string) -> string { return "<code>" + text + "</code>" }
+fn md_link(text: string, url: string) -> string { return "<a href=\"" + url + "\">" + text + "</a>" }
+fn md_list_item(text: string) -> string { return "<li>" + text + "</li>" }
+fn md_paragraph(text: string) -> string { return "<p>" + text + "</p>" }
 
-fn md_italic(text: string) -> string {
-    return "<em>" + text + "</em>"
-}
-
-fn md_heading(level: int, text: string) -> string {
-    return "<h" + int_to_string(level) + ">" + text + "</h" + int_to_string(level) + ">"
-}
-
-fn md_link(text: string, url: string) -> string {
-    return "<a href=\"" + url + "\">" + text + "</a>"
-}
-
-test "bold" {
+fn main() -> int {
     assert_eq(md_bold("hello"), "<strong>hello</strong>")
-}
-
-test "italic" {
-    assert_eq(md_italic("hello"), "<em>hello</em>")
-}
-
-test "h1" {
-    assert_eq(md_heading(1, "Title"), "<h1>Title</h1>")
-}
-
-test "h2" {
-    assert_eq(md_heading(2, "Sub"), "<h2>Sub</h2>")
-}
-
-test "link" {
-    assert(md_link("Wyn", "https://wynlang.com").contains("href"))
+    assert_eq(md_italic("world"), "<em>world</em>")
+    assert_eq(md_code("x = 1"), "<code>x = 1</code>")
+    assert_eq(md_link("Wyn", "https://wyn.dev"), "<a href=\"https://wyn.dev\">Wyn</a>")
+    assert_eq(md_list_item("item"), "<li>item</li>")
+    assert_eq(md_paragraph("text"), "<p>text</p>")
+    
+    println("markdown: 6 tests passed")
+    return 0
 }

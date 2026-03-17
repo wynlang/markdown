@@ -1,0 +1,40 @@
+// Wyn Markdown to HTML Package
+
+fn md_bold(text: string) -> string {
+    return "<strong>" + text + "</strong>"
+}
+
+fn md_italic(text: string) -> string {
+    return "<em>" + text + "</em>"
+}
+
+fn md_heading(level: int, text: string) -> string {
+    var tag = "h" + int_to_string(level)
+    return "<" + tag + ">" + text + "</" + tag + ">"
+}
+
+fn md_link(text: string, url: string) -> string {
+    return "<a href=\"" + url + "\">" + text + "</a>"
+}
+
+fn md_code(text: string) -> string {
+    return "<code>" + text + "</code>"
+}
+
+fn md_list_item(text: string) -> string {
+    return "<li>" + text + "</li>"
+}
+
+fn md_paragraph(text: string) -> string {
+    return "<p>" + text + "</p>"
+}
+
+fn main() {
+    println(md_heading(1, "Welcome"))
+    println(md_paragraph("This is " + md_bold("Wyn") + " language."))
+    println(md_paragraph(md_italic("Fast") + " and " + md_code("simple")))
+    println(md_link("Docs", "https://wynlang.com"))
+    println(md_list_item("First item"))
+    println(md_list_item("Second item"))
+    println(md_heading(2, "Subheading"))
+}
