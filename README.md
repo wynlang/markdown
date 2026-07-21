@@ -1,4 +1,4 @@
-# markdown — Official Wyn Package
+# markdown - Official Wyn Package
 
 Markdown to HTML helpers. Pure Wyn.
 
