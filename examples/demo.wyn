@@ -1,0 +1,8 @@
+import markdown
+
+fn main() {
+    println(markdown.md_heading(1, "Welcome"))
+    println(markdown.md_paragraph("This is " + markdown.md_bold("Wyn") + "."))
+    println(markdown.md_link("Docs", "https://wynlang.com"))
+    println(markdown.md_list_item("First item"))
+}

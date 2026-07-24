@@ -1,0 +1,31 @@
+// Wyn Markdown to HTML Package
+
+pub fn md_bold(text: string) -> string {
+    return "<strong>" + text + "</strong>"
+}
+
+pub fn md_italic(text: string) -> string {
+    return "<em>" + text + "</em>"
+}
+
+pub fn md_heading(level: int, text: string) -> string {
+    var tag = "h" + int_to_string(level)
+    return "<" + tag + ">" + text + "</" + tag + ">"
+}
+
+pub fn md_link(text: string, url: string) -> string {
+    return "<a href=\"" + url + "\">" + text + "</a>"
+}
+
+pub fn md_code(text: string) -> string {
+    return "<code>" + text + "</code>"
+}
+
+pub fn md_list_item(text: string) -> string {
+    return "<li>" + text + "</li>"
+}
+
+pub fn md_paragraph(text: string) -> string {
+    return "<p>" + text + "</p>"
+}
+

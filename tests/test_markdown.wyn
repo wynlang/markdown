@@ -1,18 +1,10 @@
-fn md_bold(text: string) -> string { return "<strong>" + text + "</strong>" }
-fn md_italic(text: string) -> string { return "<em>" + text + "</em>" }
-fn md_code(text: string) -> string { return "<code>" + text + "</code>" }
-fn md_link(text: string, url: string) -> string { return "<a href=\"" + url + "\">" + text + "</a>" }
-fn md_list_item(text: string) -> string { return "<li>" + text + "</li>" }
-fn md_paragraph(text: string) -> string { return "<p>" + text + "</p>" }
+// Exercises the shipped lib in src/markdown.wyn via the tests/markdown.wyn symlink.
+import markdown
 
-fn main() -> int {
-    assert_eq(md_bold("hello"), "<strong>hello</strong>")
-    assert_eq(md_italic("world"), "<em>world</em>")
-    assert_eq(md_code("x = 1"), "<code>x = 1</code>")
-    assert_eq(md_link("Wyn", "https://wyn.dev"), "<a href=\"https://wyn.dev\">Wyn</a>")
-    assert_eq(md_list_item("item"), "<li>item</li>")
-    assert_eq(md_paragraph("text"), "<p>text</p>")
-    
-    println("markdown: 6 tests passed")
-    return 0
-}
+test "bold" { assert_eq(markdown.md_bold("x"), "<strong>x</strong>") }
+test "italic" { assert_eq(markdown.md_italic("x"), "<em>x</em>") }
+test "heading" { assert_eq(markdown.md_heading(2, "Title"), "<h2>Title</h2>") }
+test "link" { assert_eq(markdown.md_link("Docs", "https://w.com"), "<a href=\"https://w.com\">Docs</a>") }
+test "code" { assert_eq(markdown.md_code("x"), "<code>x</code>") }
+test "list item" { assert_eq(markdown.md_list_item("a"), "<li>a</li>") }
+test "paragraph" { assert_eq(markdown.md_paragraph("p"), "<p>p</p>") }
